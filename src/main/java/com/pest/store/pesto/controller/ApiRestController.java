@@ -1,4 +1,5 @@
 package com.pest.store.pesto.controller;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pest.store.model.Candidate;
 import com.pest.store.util.CandidatesUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +24,7 @@ public class ApiRestController {
 		log.info("Response received. Params: skill {}", skill);
 
 		// Simple util to help us get some dummy data
-		var candidateList = CandidatesUtil.getCandidates();
+		 List<Candidate> candidateList = CandidatesUtil.getCandidates();
 		if (!StringUtils.isEmpty(skill)) {
 			// Filter by skill
 			return ResponseEntity.ok(candidateList.stream()
