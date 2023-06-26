@@ -16,6 +16,7 @@ public class Candidate {
 		this.name = name;
 		this.experienceYears = experienceYears;
 		this.skillsSet = skillsSet;
+		
 	}
 
 }
