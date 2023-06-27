@@ -1,0 +1,22 @@
+name: 'Draft release'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_strategy:
+        description: 'Version strategy: The strategy to used to update the version based on semantic versioning (more info at https://semver.org/).'
+        required: true
+        default: 'patch'
+        type: 'choice'
+        options:
+          - 'major'
+          - 'minor'
+          - 'patch'
+
+jobs:
+    steps:
+        - id: "auth"
+        uses: google-github-actions/auth@v0.4.0
+        with:
+            workload_identity_provider: "projects/1011182849385/locations/global/workloadIdentityPools/my-github0-identify-pool/github-provider"
+            service_account: "gh-action-runner-sa@reference-glass-301810.iam.gserviceaccount.com"
