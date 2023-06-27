@@ -27,3 +27,16 @@ jobs:
         with:
           workload_identity_provider: "projects/1011182849385/locations/global/workloadIdentityPools/my-github0-identify-pool/github-provider"
           service_account: "gh-action-runner-sa@reference-glass-301810.iam.gserviceaccount.com"
+
+      - name: 'Create files'
+        run: |-
+          mkdir -p test
+          touch test/test1.txt
+          touch test/test2.txt
+    
+      - id: 'upload'
+        name: 'Upload files'
+        uses: './'
+        with:
+          path: './test'
+          destination: 'my-github-data'
