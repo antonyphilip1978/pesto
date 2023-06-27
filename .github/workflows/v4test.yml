@@ -33,10 +33,5 @@ jobs:
           mkdir -p test
           touch test/test1.txt
           touch test/test2.txt
-    
-      - id: 'upload'
-        name: 'Upload files'
-        uses: './'
-        with:
-          path: './test'
-          destination: 'my-github-data'
+          gsutil cp test/test1.txt gs://my-github-data
+
