@@ -33,5 +33,6 @@ jobs:
           mkdir -p test
           touch test/test1.txt
           touch test/test2.txt
+          gcloud auth login --cred-file "$GOOGLE_APPLICATION_CREDENTIALS"
           gsutil cp test/test1.txt gs://my-github-data
 
